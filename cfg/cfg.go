@@ -95,6 +95,7 @@ type Route struct {
 
 	// grafanaNet
 	Addr        string
+	Host        string
 	ApiKey      string
 	Spool       bool
 	SslVerify   bool
