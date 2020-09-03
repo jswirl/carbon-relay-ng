@@ -504,6 +504,12 @@ func readAddRouteGrafanaNet(s *toki.Scanner, table Table) error {
 	if t.Token != word {
 		return errFmtAddRouteGrafanaNet
 	}
+	host := string(t.Value)
+
+	t = s.Next()
+	if t.Token != word {
+		return errFmtAddRouteGrafanaNet
+	}
 	schemasFile := string(t.Value)
 	t = s.Next()
 
@@ -616,7 +622,7 @@ func readAddRouteGrafanaNet(s *toki.Scanner, table Table) error {
 		}
 	}
 
-	route, err := route.NewGrafanaNet(key, matcher, addr, apiKey, schemasFile, spool, sslVerify, blocking, bufSize, flushMaxNum, flushMaxWait, timeout, concurrency, orgId)
+	route, err := route.NewGrafanaNet(key, matcher, addr, apiKey, host, schemasFile, spool, sslVerify, blocking, bufSize, flushMaxNum, flushMaxWait, timeout, concurrency, orgId)
 	if err != nil {
 		return err
 	}

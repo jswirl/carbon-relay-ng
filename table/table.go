@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/BurntSushi/toml"
-	"github.com/Dieterbe/go-metrics"
+	metrics "github.com/Dieterbe/go-metrics"
 	"github.com/grafana/carbon-relay-ng/aggregator"
 	"github.com/grafana/carbon-relay-ng/badmetrics"
 	"github.com/grafana/carbon-relay-ng/cfg"
@@ -811,7 +811,7 @@ func (table *Table) InitRoutes(config cfg.Config, meta toml.MetaData) error {
 				orgId = routeConfig.OrgId
 			}
 
-			route, err := route.NewGrafanaNet(routeConfig.Key, matcher, routeConfig.Addr, routeConfig.ApiKey, routeConfig.SchemasFile, spool, sslVerify, routeConfig.Blocking, bufSize, flushMaxNum, flushMaxWait, timeout, concurrency, orgId)
+			route, err := route.NewGrafanaNet(routeConfig.Key, matcher, routeConfig.Addr, routeConfig.ApiKey, routeConfig.Host, routeConfig.SchemasFile, spool, sslVerify, routeConfig.Blocking, bufSize, flushMaxNum, flushMaxWait, timeout, concurrency, orgId)
 			if err != nil {
 				log.Error(err.Error())
 				return fmt.Errorf("error adding route '%s'", routeConfig.Key)

@@ -32,6 +32,7 @@ type GrafanaNet struct {
 	baseRoute
 	addr    string
 	apiKey  string
+	host    string
 	schemas persister.WhisperSchemas
 
 	bufSize      int // amount of messages we can buffer up. each message is about 100B. so 1e7 is about 1GB.
@@ -62,7 +63,7 @@ type GrafanaNet struct {
 // NewGrafanaNet creates a special route that writes to a grafana.net datastore
 // We will automatically run the route and the destination
 // ignores spool for now
-func NewGrafanaNet(key string, matcher matcher.Matcher, addr, apiKey, schemasFile string, spool, sslVerify, blocking bool, bufSize, flushMaxNum, flushMaxWait, timeout, concurrency, orgId int) (Route, error) {
+func NewGrafanaNet(key string, matcher matcher.Matcher, addr, apiKey, host, schemasFile string, spool, sslVerify, blocking bool, bufSize, flushMaxNum, flushMaxWait, timeout, concurrency, orgId int) (Route, error) {
 	schemas, err := getSchemas(schemasFile)
 	if err != nil {
 		return nil, err
@@ -74,6 +75,7 @@ func NewGrafanaNet(key string, matcher matcher.Matcher, addr, apiKey, schemasFil
 		baseRoute: baseRoute{sync.Mutex{}, atomic.Value{}, key},
 		addr:      addr,
 		apiKey:    apiKey,
+		host:      host,
 		schemas:   schemas,
 
 		bufSize:      bufSize,
@@ -207,6 +209,9 @@ func (route *GrafanaNet) retryFlush(metrics []*schema.MetricData, buffer *bytes.
 	}
 	req.Header.Add("Authorization", "Bearer "+route.apiKey)
 	req.Header.Add("Content-Type", "rt-metric-binary-snappy")
+	if len(route.host) > 0 {
+		req.Host = route.host
+	}
 	boff := &backoff.Backoff{
 		Min:    100 * time.Millisecond,
 		Max:    30 * time.Second,
