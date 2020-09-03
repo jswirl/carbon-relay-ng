@@ -84,11 +84,13 @@ github.com/konsorten/go-windows-terminal-sequences v0.0.0-20180402223658-b729f26
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
 github.com/kr/pretty v0.0.0-20160325215624-add1dbc86daf h1:FpLJsEsdtsfWNJ+m+MECl0mSzLu9korRoIKSVbYhwFI=
 github.com/kr/pretty v0.0.0-20160325215624-add1dbc86daf/go.mod h1:Bvhd+E3laJ0AVkG0c9rmtZcnhV0HQ3+c3YxxqTvc/gA=
+github.com/kr/pretty v0.2.0 h1:s5hAObm+yFO5uHYt5dYjxi2rXrsnmRpJx4OYvIWUaQs=
 github.com/kr/pretty v0.2.0/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.0.0-20150905224508-bb797dc4fb83 h1:zIzxNaBxRxmbPPCgya4J5KccVN23qXA/V75oApRNahI=
 github.com/kr/text v0.0.0-20150905224508-bb797dc4fb83/go.mod h1:sjUstKUATFIcff4qlB53Kml0wQPtJVc/3fWrmuUmcfA=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
+github.com/kr/text v0.2.0 h1:5Nx0Ya0ZqY2ygV366QzturHI13Jq95ApcVaJBhpS+AY=
 github.com/kr/text v0.2.0/go.mod h1:eLer722TekiGuMkidMxC/pM04lWEeraHUUmBw8l2grE=
 github.com/metrics20/go-metrics20 v0.0.0-20180821133656-717ed3a27bf9 h1:HJGxeTb4X202FGBHUwj22enx5McT2piwCK6k0uBvV1A=
 github.com/metrics20/go-metrics20 v0.0.0-20180821133656-717ed3a27bf9/go.mod h1:aihH5QYDkB9IKLb+t3Fm/4cStUU9MBfLjmVWWEsG2Ok=
